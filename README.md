@@ -20,3 +20,6 @@ Bet class:
 
 Player Class:
     Takes in the player name and initial money. Tracks money based on bets. 
+
+Table Class: 
+    Takes in a table number, built into the class and creates the table associated with that number. Which is then passed to wheel class to create the wheel assoicated with it. 
