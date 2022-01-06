@@ -11,3 +11,9 @@ Wheel class:
         Then it adds in another random int to similate the ball throw. 
         Uses Modulo to get the number it would land on. 
         ** Future will add a strength function to the ball from the dealer to have each dealer throw differently. 
+
+Outcome class:
+    Takes in a number or string from the wheel/bin class and then will return the odds. 
+
+Bet class:
+    Takes in the bet. Returns the value of the bet after the win. 

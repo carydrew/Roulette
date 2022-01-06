@@ -12,7 +12,7 @@ class Outcome:
         self.n = n
         self.odds = Outcome._odds(self)
 
-    def __repr__(self):
+    def get_odds(self):
         return "The odds are {}:1".format(self.odds)
 
 # testing

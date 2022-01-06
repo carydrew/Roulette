@@ -14,15 +14,21 @@ class Wheel:
              self.x= Bin(x)
              self.bins.append(self.x)
 
-    def __getWheelPosition(self):
-        return random.randint(0,36)
+    def _getWheelPosition(self):
+        self.position = random.randint(0,36)
 
-    def getResult(self):
-        self.ans = random.randint(0,360) + Wheel.__getWheelPosition(self)
-        return (self.ans % 36)
+    def spin(self):
+        Wheel._getWheelPosition(self)
+        self.res = (random.randint(0,360) + self.position) % 36
+        return self.bins[self.res].getResults()
 
-    def __repr__(self):
-        ans = Wheel.getResult(self)
-        return self.bins[ans]          
+    #def __repr__(self):
+    #    Wheel.spin(self)
+    #    self.winner = self.bins[self.res].getResults()
+    #    return self.winner
 
 
+#testing
+
+#w1 = Wheel()
+#print(w1.spin())
