@@ -6,7 +6,7 @@ class Table:
         self.tableNum = num
         self.table_wheel = Wheel(self.tableNum)
 
-    def play(self):
-        return self.table_wheel.spin()
+    def play(self, num):
+        return self.table_wheel.spin(num)
 
 

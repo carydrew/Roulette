@@ -8,6 +8,8 @@ class Bet:
         self.amount = amount
         self.odds = Outcome(bet)
 
+
+
     def winOrLoss(self, res):
         if res == self.bet:
             return (self.amount * self.odds.odds)

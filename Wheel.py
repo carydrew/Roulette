@@ -14,9 +14,9 @@ class Wheel:
     def _getWheelPosition(self):
         self.position = random.randint(0,36)
 
-    def spin(self):
+    def spin(self, num):
         Wheel._getWheelPosition(self)
-        self.res = (random.randint(0,360) + self.position) % 36
+        self.res = (random.randint(0,360) + self.position + num) % 36
         return self.bins[self.res].getResults()
 
     #def __repr__(self):
@@ -27,5 +27,5 @@ class Wheel:
 
 #testing
 
-#w1 = Wheel()
-#print(w1.spin())
+#w1 = Wheel(1)
+#print(w1.spin(1))

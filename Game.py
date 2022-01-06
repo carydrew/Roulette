@@ -1,19 +1,21 @@
-from Dealer import Dealer
-from Table import Table
-from Player import Player
-
-class Game:
-
-    gameNum = 1
-
-    def __init__(self):
-        self.gameNum = Game.gameNum
-        Game.gameNum += 1
-        self.dealer = Dealer(self.gameNum)
-        self.table = Table(self.gameNum)
+from Roulette import Roulette
 
 
+print('''Hello! Welcome the Roulette Casino. In this you will 
+be able create multiple tables of Roulette to play with.
+It is up to you on how many games you want to play at a time.
+                 Enjoy the Game! 
+          This was created by Cary Drew.''')
 
+name = input("What is your name?  ")
+money = int(input("How much money did you bring to play with? $"))
+
+print("Hello {}! Hopefully you leave with more than ${}!\n\n".format(name, money))
+
+
+r = Roulette(name, money)
+
+r.play()
 
 
 
