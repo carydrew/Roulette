@@ -19,16 +19,10 @@ class Wheel:
 
     def getResult(self):
         self.ans = random.randint(0,360) + Wheel.__getWheelPosition(self)
-        return self.ans % 36
+        return (self.ans % 36)
 
     def __repr__(self):
         ans = Wheel.getResult(self)
         return self.bins[ans]          
 
 
-
-
-
-#Testing that it makes them all.
-#w1 = Wheel()
-#print(w1.bins)
