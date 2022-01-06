@@ -17,3 +17,6 @@ Outcome class:
 
 Bet class:
     Takes in the bet. Returns the value of the bet after the win. 
+
+Player Class:
+    Takes in the player name and initial money. Tracks money based on bets. 

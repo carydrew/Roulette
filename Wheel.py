@@ -4,11 +4,8 @@ from Bin import Bin
 
 class Wheel:
     
-    tableNum = 1
-
-    def __init__(self):
-        self.tableNum = Wheel.tableNum
-        Wheel.tableNum += 1
+    def __init__(self, tableNum):
+        self.tableNum = tableNum
         self.bins = []
         for x in range(0,37):
              self.x= Bin(x)
