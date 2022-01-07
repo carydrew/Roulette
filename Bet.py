@@ -9,11 +9,11 @@ class Bet:
         self.odds = Outcome(bet)
         self.valid = Bet.valid(self, bet)
 
-    def winOrLoss(self, res):
-        if res == self.bet:
-            return (self.amount * self.odds.odds)
-        else:
-            return (self.amount * -1) 
+    def win(self):
+        return (self.amount * self.odds.odds)
+        
+    def lose(self):  
+        return (self.amount * -1) 
 
     def printWinLossAmount(self,res):
         ans = Bet.winOrLoss(self, res)

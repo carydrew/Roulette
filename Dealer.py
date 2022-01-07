@@ -19,6 +19,7 @@ class Dealer:
         more = True
         amount = 0
         while more == True:
+            print("Welcome Player! You currently have ${} to play with.".format(top))
             money = int(input("\nHow much do you want to bet? $"))
             bet = input("What is your bet of ${} on? ".format(money))
             newBet = Bet(bet, money)
@@ -37,7 +38,8 @@ class Dealer:
             else:  betList.append(newBet)
             if amount < top: cont = input("\nAnother Bet (Y/N): ")
             else: break
-            if cont.upper() == "N": continue
+            if cont.upper() == "N": break
+            else: continue
         
         print('\n')
         for bet in betList:
@@ -54,18 +56,49 @@ class Dealer:
         # self.results looks like
         # {'number': 16, 'color': 'black', 'evenOdd': 'even', 'half': 'first half', 'third': 'second 12', 'column': 'column one'}
 
-        print("\n\nThe winning items are!")
-        for key in self.result.keys():
-            print(self.result.get(key))
+        Dealer.sayWinningPossibilities(self, self.result)
+        return Dealer.sayWinningBets(self, self.result, betList)
 
+    def sayWinningPossibilities(self, win):
+
+        print("\n\nThe winning items are!")
+        for key in win.keys():
+            print(win.get(key))
+
+    def sayWinningBets(self, win, betList):
+        winnersList = []
+        losersList = []
         print("\nThe winning bets placed are: ")
         try:
-            pass
-        finally:
-            print("No bets won.")
+            for key in win.keys():
+                for item in betList:
+                    if win.get(key) == item.pick:
+                        print("{}".format(item.pick))
+                        winnersList.append(item)
+                    elif win.get(key) != item.pick: 
+                        losersList.append(item)
+
+
+        except:
+            print("\nNo bets won.")
+
+        return winnersList, losersList
+
+    def payout(self, winningBets, losingBets):
+        total = 0
+        for item in winningBets:
+            total += item.win()
+        for item in losingBets:
+            total -= item.lose()
+        
+        if total > 0: print("Player, you have won ${}".format(total))
+        elif total < 0: print("Player, you have lost ${}".format(total))
+        elif total == 0: print("Player, you have lost ${}".format(total))
+
+        return total
     
         
 #Testing
 #
-d1 = Dealer(1)
-d1.getBets(100)
+#d1 = Dealer(1)
+#d1.getBets(100)
