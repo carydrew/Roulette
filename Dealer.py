@@ -18,8 +18,8 @@ class Dealer:
         betList = []
         more = True
         amount = 0
+        print("Welcome Player! You currently have ${} to play with.".format(top))
         while more == True:
-            print("Welcome Player! You currently have ${} to play with.".format(top))
             money = int(input("\nHow much do you want to bet? $"))
             bet = input("What is your bet of ${} on? ".format(money))
             newBet = Bet(bet, money)
@@ -67,33 +67,31 @@ class Dealer:
 
     def sayWinningBets(self, win, betList):
         winnersList = []
-        losersList = []
+        losersLost = 0
         print("\nThe winning bets placed are: ")
         try:
-            for key in win.keys():
-                for item in betList:
-                    if win.get(key) == item.pick:
-                        print("{}".format(item.pick))
-                        winnersList.append(item)
-                    elif win.get(key) != item.pick: 
-                        losersList.append(item)
+            for item in betList:
+                if item.pick in win.values(): 
+                    print("{}".format(item.pick))
+                    winnersList.append(item)
+                else:
+                    losersLost += item.amount
 
 
         except:
             print("\nNo bets won.")
 
-        return winnersList, losersList
+        return winnersList, losersLost
 
     def payout(self, winningBets, losingBets):
         total = 0
         for item in winningBets:
-            total += item.win()
-        for item in losingBets:
-            total -= item.lose()
+            total += item.win()        
+        total -= losingBets
         
         if total > 0: print("Player, you have won ${}".format(total))
         elif total < 0: print("Player, you have lost ${}".format(total))
-        elif total == 0: print("Player, you have lost ${}".format(total))
+        elif total == 0: print("Player, you broke even this round.")
 
         return total
     

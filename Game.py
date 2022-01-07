@@ -15,7 +15,7 @@ if money <= 0:
        exit()
 
 
-print("Hello {}! Hopefully you leave with more than you brought!!\n\n".format(name))
+print("Hello {}! Hopefully you leave with more than you brought!!\n\n".format(name.capitalize()))
 
 r = Roulette(name, money)
 r.play()
