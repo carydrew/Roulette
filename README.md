@@ -35,12 +35,10 @@ Dealer Class:
         5. States what bets made actually won via the sayWinningBets() method. 
             - This will also return a list of the instances of bets that won and a total value of bets that did not win.
     The roulette class will then call the payout() method which will add together the winning bets and losing bets for the player and change the players currentmoney value. 
-
     This class imports the Table and Bet classes.
 
 Table Class: 
     Takes in a table number, creates the table associated with that number. It should be the same number assigned to the dealer. This is then passed to wheel class to create the wheel assoicated with the table. 
-
     Has a play() method that will call for the will to be spun.
 
 Wheel class:
@@ -58,13 +56,9 @@ Bet class:
     This is called via the Dealer class.
     Takes in the int:bet_amount and a string/int for a bet. 
     This will have variables holding the bet, the amount betted, the amount returned if won (called from the outcome class) and a check that the bet is valid using a bool function. 
-
     Win() method will return an int of the amount bet x the odds(aka the amount you win as it isn't really the exact odds of winning).
-
     Lose() method will return a negative value of the amount bet.
-
     valid() method checks to see if the bet is an acceptable item to bet on.
-
     Imports Outcome to get the odds.
 
 
@@ -74,7 +68,6 @@ Outcome class:
 Future thoughts. 
 - Expand the game to include creation of multiple players.
     - I am thinking this just needs to be done by making the bets list into a dict. The name of the person making the bet is the key and then the value is a list of the bet instances. 
-
 - Add a gui to point and click on bets. Make it easier to bet on items that you don't have to type. 
 
 
