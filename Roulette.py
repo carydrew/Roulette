@@ -15,7 +15,7 @@ class Roulette:
         self.dealer = Dealer(self.gameNum)
         self.player = Player(name, money)
 
-
+    def play(self):
         play = True
         while play == True:
             winners, losers = self.dealer.getBets(self.player.currentMoney)

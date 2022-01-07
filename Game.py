@@ -10,13 +10,17 @@ It is up to you on how many games you want to play at a time.
 name = input("What is your name?  ")
 money = int(input("How much money did you bring to play with? $"))
 
-print("Hello {}! Hopefully you leave with more than ${}!\n\n".format(name, money))
+if money <= 0: 
+       print("Sorry, you didn't bring any money to play!")
+       exit()
 
+
+print("Hello {}! Hopefully you leave with more than you brought!!\n\n".format(name))
 
 r = Roulette(name, money)
-
 r.play()
 
+print("Thanks for playing!")
 
 
         
