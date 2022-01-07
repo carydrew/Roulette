@@ -49,7 +49,6 @@ Wheel class:
 
 Bin class:
     Takes in a number and can return a dict of that holds all the variable associated with the possible wins. Such as color, even or odd, etc. 
-
     Has a getResults() method that will return the dict of the bets that would win if that bin was the one the ball landed in.
 
 Bet class:
