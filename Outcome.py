@@ -13,7 +13,7 @@ class Outcome:
         self.odds = Outcome._odds(self)
 
     def get_odds(self):
-        return "The odds are {}:1".format(self.odds)
+        print("The odds are {}:1".format(self.odds))
 
 # testing
 

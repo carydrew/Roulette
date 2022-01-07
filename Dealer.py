@@ -15,27 +15,34 @@ class Dealer:
         return self.strength
 
     def getBets(self, top):
-        betnum = 0
         betList = []
         more = True
         amount = 0
         while more == True:
-            bet = input("\nWhat is your bet on? ")
-            money = int(input("How much do you want to bet? $"))
+            money = int(input("\nHow much do you want to bet? $"))
+            bet = input("What is your bet of ${} on? ".format(money))
+            newBet = Bet(bet, money)
+            # Check if Bet is valid
+            if newBet.valid == False: 
+                print("Sorry, this bet is allowed. Please make a valid bet.")
+                continue
             #print("You are betting ${} on {}.".format(money, bet))
             amount += money
-            if money > top:
+            if amount > top:
+                amount -= money
                 print("Sorry, you don't have enough money for this bet.")
-                more = False
-                break
-            betList[betnum] = Bet(bet, money)
-            cont = input("\nAnother Bet (Y/N): ")
+                print("You currently have ${} left to bet with.".format(top-amount))
+            else:  betList.append(newBet)
+            if amount < top: cont = input("\nAnother Bet (Y/N): ")
+            else: cont = "N"
             if cont.upper() == "N":
+                print('\n')
+                for bet in betList:
+                    print("You are betting ${} on {}.".format(bet.amount, bet.pick))
                 more = False
                 break
         
-            for bet in betList:
-                print("You are betting ${} on {}. The odds are {}:1".format(bet.bet, bet.amount,bet.odds))
+            
         
         print("\nNo more bets please! I am throwing the ball.")
         time.sleep(3)
@@ -45,9 +52,21 @@ class Dealer:
         time.sleep(2)
         self.result = self.table.play(self.strength)
 
+        # self.results looks like
+        # {'number': 16, 'color': 'black', 'evenOdd': 'even', 'half': 'first half', 'third': 'second 12', 'column': 'column one'}
+
         print("\n\nThe winning items are!")
         for key in self.result.keys():
-            print()
+            print(self.result.get(key))
+
+        print("\nThe winning bets placed are: ")
+        try:
+            pass
+        finally:
+            print("No bets won.")
     
         
-        for bet in betList:
+#Testing
+#
+d1 = Dealer(1)
+d1.getBets(100)

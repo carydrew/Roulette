@@ -52,11 +52,11 @@ class Bin:
         Bin.__setThirds(self)
 
         
-    def __repr__(self):
-        if self.number == (0 or 00):
-            return "The number is {}".format(self.number)
-        else:
-            return "The number is {}, {} {} {} {} {}".format(self.number,self.eo,self.column,self.half,self.color,self.third)
+    #def __repr__(self):
+    #    if self.number == (0 or 00):
+    #        return "The number is {}".format(self.number)
+    #    else:
+    #        return "The number is {}, {} {} {} {} {}".format(self.number,self.eo,self.column,self.half,self.color,self.third)
 
     def getResults(self):
         if self.number == (0 or 00):
