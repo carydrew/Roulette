@@ -23,9 +23,11 @@ class Dealer:
             bet = input("What is your bet of ${} on? ".format(money))
             newBet = Bet(bet, money)
             # Check if Bet is valid
-            if newBet.valid == False: 
+            if newBet.valid is False: 
                 print("Sorry, this bet is allowed. Please make a valid bet.")
-                continue
+                yn = input("Would you like to try another bet (Y/N):  ")
+                if yn.upper() == "N": break
+                else: continue
             #print("You are betting ${} on {}.".format(money, bet))
             amount += money
             if amount > top:
@@ -34,16 +36,13 @@ class Dealer:
                 print("You currently have ${} left to bet with.".format(top-amount))
             else:  betList.append(newBet)
             if amount < top: cont = input("\nAnother Bet (Y/N): ")
-            else: cont = "N"
-            if cont.upper() == "N":
-                print('\n')
-                for bet in betList:
-                    print("You are betting ${} on {}.".format(bet.amount, bet.pick))
-                more = False
-                break
+            else: break
+            if cont.upper() == "N": continue
         
-            
-        
+        print('\n')
+        for bet in betList:
+            print("You are betting ${} on {}.".format(bet.amount, bet.pick))
+ 
         print("\nNo more bets please! I am throwing the ball.")
         time.sleep(3)
         print("\nThe ball is still going.")
